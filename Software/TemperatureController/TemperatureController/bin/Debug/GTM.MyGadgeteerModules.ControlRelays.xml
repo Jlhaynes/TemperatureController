@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>GTM.MyGadgeteerModules.ControlRelays</name>
+    </assembly>
+    <members>
+        <member name="T:Gadgeteer.Modules.MyGadgeteerModules.ControlRelays">
+            <summary>
+            A ControlRelays module for Microsoft .NET Gadgeteer
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Modules.MyGadgeteerModules.ControlRelays.#ctor(System.Int32)">
+            <summary>
+            Creates a ControlRelays object connected to the specified socket number.
+            </summary>
+            <param name="socketNumber"></param>
+        </member>
+        <member name="P:Gadgeteer.Modules.MyGadgeteerModules.ControlRelays.Relay1">
+            <summary>
+            Sets State of Relay 1
+            </summary>        
+        </member>
+        <member name="P:Gadgeteer.Modules.MyGadgeteerModules.ControlRelays.Relay2">
+            <summary>
+            Sets State of Relay 2
+            </summary>        
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,19 @@
+*
+* This spice model was created using the Altium Spice Model Wizard
+* Created: 7:59 AM on 28 October, 2013
+*
+* Component Name: P6KE20A
+* Component Description: Vishay TVS Diode
+*
+.MODEL P6KE20A D
++(
++     BV = 20
++    IBV = 3E-3
++)
+
+* Spice model P6KE20A has been assigned the following parameters:
+
+* Reverse-Breakdown Diode Current Parameters
+*     BV: Reverse Breakdown Voltage...........(Unit: V)
+*    IBV: Current at Breakdown Voltage........(Unit: A)
+

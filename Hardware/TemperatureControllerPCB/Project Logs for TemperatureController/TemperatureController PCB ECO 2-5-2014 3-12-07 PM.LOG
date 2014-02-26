@@ -1,0 +1,5 @@
+Added Component: Designator=Q4(SOT-23A_N)
+Added Pin To Net: NetName=NetQ1_2 Pin=Q4-1
+Added Pin To Net: NetName=GND Pin=Q4-2
+Added Pin To Net: NetName=NetD1_2 Pin=Q4-3
+Added Member To Class: ClassName=TemperatureController Member=Component Q4 BCW65C

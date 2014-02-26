@@ -1,0 +1,16 @@
+Removed Pin From Net: NetName=NetD1_2 Pin=Q1-1
+Removed Pin From Net: NetName=GND Pin=Q1-3
+Removed Pin From Net: NetName=NetD2_2 Pin=Q2-1
+Removed Pin From Net: NetName=GND Pin=Q2-3
+Change Component DesignItemId : Designator=Q1 Old DesignItemId=QNPN New DesignItemId=MMBT3904
+Change Component DesignItemId : Designator=Q2 Old DesignItemId=QNPN New DesignItemId=MMBT3904
+Change Component Footprint: Designator=Q1 Old Footprint=SOT-23B_N New Footprint=SOT-23_L
+Change Component Footprint: Designator=Q2 Old Footprint=SOT-23B_N New Footprint=SOT-23_L
+Change Component Comment : Designator=Q1 Old Comment=QNPN New Comment=MMBT3904
+Change Component Comment : Designator=Q2 Old Comment=QNPN New Comment=MMBT3904
+Added Pin To Net: NetName=GND Pin=Q1-1
+Added Pin To Net: NetName=NetD1_2 Pin=Q1-3
+Added Pin To Net: NetName=GND Pin=Q2-1
+Added Pin To Net: NetName=NetD2_2 Pin=Q2-3
+Change Net Name : Old Net Name=12 VDC New Net Name=VCC_12V
+Change Class Name : Old Net Name=TemperatureControllerV3 New Net Name=TemperatureController

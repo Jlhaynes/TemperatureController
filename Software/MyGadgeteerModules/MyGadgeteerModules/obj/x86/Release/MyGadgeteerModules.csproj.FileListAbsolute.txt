@@ -1,0 +1,4 @@
+C:\Users\user\Documents\Visual Studio 2010\Projects\MyGadgeteerModules\MyGadgeteerModules\bin\Ignore\KitInstaller.dll
+C:\Users\user\Documents\Visual Studio 2010\Projects\MyGadgeteerModules\MyGadgeteerModules\bin\Ignore\KitInstaller.pdb
+C:\Users\user\Documents\Visual Studio 2010\Projects\MyGadgeteerModules\MyGadgeteerModules\obj\x86\Release\KitInstaller.dll
+C:\Users\user\Documents\Visual Studio 2010\Projects\MyGadgeteerModules\MyGadgeteerModules\obj\x86\Release\KitInstaller.pdb

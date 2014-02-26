@@ -1,0 +1,3 @@
+Layer Pairs Export File for PCB: C:\Users\Public\Documents\Altium\AD13\Projects\TemperatureControllerV4\TemperatureController.PcbDoc
+LayersSetName=Top_Bot_Thru_Holes|DrillFile=temperaturecontroller-roundholes.txt|LayerPairs=gtl,gbl
+LayersSetName=Top_Bot_Slot_Holes|DrillFile=temperaturecontroller-slotholes.txt|LayerPairs=gtl,gbl

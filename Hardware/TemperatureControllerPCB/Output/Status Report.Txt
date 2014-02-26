@@ -1,0 +1,22 @@
+Output: Gerber Files
+Type  : Gerber
+From  : Variant [[No Variations]] of Project [TemperatureController.PrjPcb]
+   Generated File[TemperatureController.GTL]
+   Generated File[TemperatureController.GBL]
+   Generated File[TemperatureController.GTO]
+   Generated File[TemperatureController.GTP]
+   Generated File[TemperatureController.GTS]
+   Generated File[TemperatureController.GBS]
+   Generated File[TemperatureController.GM1]
+   Generated File[TemperatureController.GM3]
+   Generated File[TemperatureController.GKO]
+   Generated File[TemperatureController.GD1]
+   Generated File[TemperatureController.RUL]
+   Generated File[TemperatureController.EXTREP]
+   Generated File[TemperatureController.REP]
+
+
+Files Generated   : 13
+Documents Printed : 0
+
+Finished Output Generation At 3:37:52 PM On 2/20/2014

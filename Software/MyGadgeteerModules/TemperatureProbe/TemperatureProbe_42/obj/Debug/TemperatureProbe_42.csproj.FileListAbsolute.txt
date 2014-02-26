@@ -1,0 +1,13 @@
+c:\users\user\documents\visual studio 2010\Projects\MyGadgeteerModules\TemperatureProbe\TemperatureProbe_42\bin\Debug\le\GTM.MyGadgeteerModules.TemperatureProbe.dll
+c:\users\user\documents\visual studio 2010\Projects\MyGadgeteerModules\TemperatureProbe\TemperatureProbe_42\bin\Debug\be\GTM.MyGadgeteerModules.TemperatureProbe.dll
+c:\users\user\documents\visual studio 2010\Projects\MyGadgeteerModules\TemperatureProbe\TemperatureProbe_42\bin\Debug\le\GTM.MyGadgeteerModules.TemperatureProbe.pdb
+c:\users\user\documents\visual studio 2010\Projects\MyGadgeteerModules\TemperatureProbe\TemperatureProbe_42\bin\Debug\be\GTM.MyGadgeteerModules.TemperatureProbe.pdb
+c:\users\user\documents\visual studio 2010\Projects\MyGadgeteerModules\TemperatureProbe\TemperatureProbe_42\bin\Debug\GTM.MyGadgeteerModules.TemperatureProbe.dll
+c:\users\user\documents\visual studio 2010\Projects\MyGadgeteerModules\TemperatureProbe\TemperatureProbe_42\bin\Debug\GTM.MyGadgeteerModules.TemperatureProbe.pdb
+c:\users\user\documents\visual studio 2010\Projects\MyGadgeteerModules\TemperatureProbe\TemperatureProbe_42\bin\Debug\le\GTM.MyGadgeteerModules.TemperatureProbe.pe
+c:\users\user\documents\visual studio 2010\Projects\MyGadgeteerModules\TemperatureProbe\TemperatureProbe_42\bin\Debug\le\GTM.MyGadgeteerModules.TemperatureProbe.pdbx
+c:\users\user\documents\visual studio 2010\Projects\MyGadgeteerModules\TemperatureProbe\TemperatureProbe_42\bin\Debug\be\GTM.MyGadgeteerModules.TemperatureProbe.pe
+c:\users\user\documents\visual studio 2010\Projects\MyGadgeteerModules\TemperatureProbe\TemperatureProbe_42\bin\Debug\be\GTM.MyGadgeteerModules.TemperatureProbe.pdbx
+c:\users\user\documents\visual studio 2010\Projects\MyGadgeteerModules\TemperatureProbe\TemperatureProbe_42\obj\Debug\TinyCLR_DebugReferences.cache
+c:\users\user\documents\visual studio 2010\Projects\MyGadgeteerModules\TemperatureProbe\TemperatureProbe_42\obj\Debug\GTM.MyGadgeteerModules.TemperatureProbe.dll
+c:\users\user\documents\visual studio 2010\Projects\MyGadgeteerModules\TemperatureProbe\TemperatureProbe_42\obj\Debug\GTM.MyGadgeteerModules.TemperatureProbe.pdb

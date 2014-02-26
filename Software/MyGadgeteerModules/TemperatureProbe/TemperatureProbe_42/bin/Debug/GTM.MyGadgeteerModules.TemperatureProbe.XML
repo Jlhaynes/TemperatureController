@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>GTM.MyGadgeteerModules.TemperatureProbe</name>
+    </assembly>
+    <members>
+        <member name="T:Gadgeteer.Modules.MyGadgeteerModules.TemperatureProbe">
+            <summary>
+            A TemperatureProbe module for Microsoft .NET Gadgeteer
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Modules.MyGadgeteerModules.TemperatureProbe.#ctor(System.Int32,System.Int32)">
+            <summary></summary>
+            <param name="socketNumber">The socket that this module is plugged in to.</param>
+            <param name="socketNumberTwo">The second socket that this module is plugged in to.</param>
+        </member>
+        <member name="M:Gadgeteer.Modules.MyGadgeteerModules.TemperatureProbe.OnButtonEvent(Gadgeteer.Modules.MyGadgeteerModules.TemperatureProbe,Gadgeteer.Modules.MyGadgeteerModules.TemperatureProbe.ButtonState)">
+            <summary>
+            Raises the <see cref="E:Gadgeteer.Modules.MyGadgeteerModules.TemperatureProbe.ButtonPressed"/> or <see cref="E:Gadgeteer.Modules.MyGadgeteerModules.TemperatureProbe.ButtonReleased"/> event.
+            </summary>
+            <param name="sender">The <see cref="T:Gadgeteer.Modules.MyGadgeteerModules.TemperatureProbe"/> that raised the event.</param>
+            <param name="buttonState">The state of the button.</param>
+        </member>
+        <member name="P:Gadgeteer.Modules.MyGadgeteerModules.TemperatureProbe.IsPressed">
+            <summary>
+            Gets a value that indicates whether the button of the TemperatureProbe is pressed.
+            </summary>
+        </member>
+        <member name="E:Gadgeteer.Modules.MyGadgeteerModules.TemperatureProbe.ButtonPressed">
+            <summary>
+            Raised when the button of the <see cref="T:Gadgeteer.Modules.MyGadgeteerModules.TemperatureProbe"/> is pressed.
+            </summary>
+            <remarks>
+            Implement this event handler and/or the <see cref="E:Gadgeteer.Modules.MyGadgeteerModules.TemperatureProbe.ButtonReleased"/> event handler
+            when you want to provide an action associated with button events.
+            Since the state of the button is passed to the <see cref="T:Gadgeteer.Modules.MyGadgeteerModules.TemperatureProbe.ButtonEventHandler"/> delegate,
+            so you can use the same event handler for both button states.
+            </remarks>
+        </member>
+        <member name="E:Gadgeteer.Modules.MyGadgeteerModules.TemperatureProbe.ButtonReleased">
+            <summary>
+            Raised when the button of the <see cref="T:Gadgeteer.Modules.MyGadgeteerModules.TemperatureProbe"/> is released.
+            </summary>
+            <remarks>
+            Implement this event handler and/or the <see cref="E:Gadgeteer.Modules.MyGadgeteerModules.TemperatureProbe.ButtonPressed"/> event handler
+            when you want to provide an action associated with button events.
+            Since the state of the button is passed to the <see cref="T:Gadgeteer.Modules.MyGadgeteerModules.TemperatureProbe.ButtonEventHandler"/> delegate,
+            you can use the same event handler for both button states.
+            </remarks>
+        </member>
+        <member name="T:Gadgeteer.Modules.MyGadgeteerModules.TemperatureProbe.ButtonState">
+            <summary>
+            Represents the state of button of the <see cref="T:Gadgeteer.Modules.MyGadgeteerModules.TemperatureProbe"/>.
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Modules.MyGadgeteerModules.TemperatureProbe.ButtonState.Released">
+            <summary>
+            The button is released.
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Modules.MyGadgeteerModules.TemperatureProbe.ButtonState.Pressed">
+            <summary>
+            The button is pressed.
+            </summary>
+        </member>
+        <member name="T:Gadgeteer.Modules.MyGadgeteerModules.TemperatureProbe.ButtonEventHandler">
+            <summary>
+            Represents the delegate that is used to handle the <see cref="E:Gadgeteer.Modules.MyGadgeteerModules.TemperatureProbe.ButtonPressed"/>
+            and <see cref="E:Gadgeteer.Modules.MyGadgeteerModules.TemperatureProbe.ButtonReleased"/> events.
+            </summary>
+            <param name="sender">The <see cref="T:Gadgeteer.Modules.MyGadgeteerModules.TemperatureProbe"/> object that raised the event.</param>
+            <param name="state">The state of the button of the <see cref="T:Gadgeteer.Modules.MyGadgeteerModules.TemperatureProbe"/></param>
+        </member>
+    </members>
+</doc>

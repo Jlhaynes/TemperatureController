@@ -1,0 +1,19 @@
+Field=Comment~String~Comment~100|Field=Description~String~Description~100|Field=Designator~String~Designator~100|Field=Footprint~String~Footprint~100|Field=LibRef~String~LibRef~100|Field=Quantity~Integer~Quantity~100|ReportField=Currency~<none>|ReportField=ProductionQuantity~1|ReportField=ProjectFileName~TemperatureController.PrjPcb|ReportField=ProjectFullPath~C:\Users\Public\Documents\Altium\AD13\Projects\TemperatureControllerV4\TemperatureController.PrjPcb|ReportField=Title~Bill of Materials For Project [TemperatureController.PrjPcb] (No PCB Document Selected)|ReportField=TotalQuantity~24|ReportField=ReportTime~3:42:21 PM|ReportField=ReportDate~2/20/2014|ReportField=ReportDateTime~2/20/2014 3:42:21 PM|ReportField=OutputName~Bill of Materials|ReportField=OutputType~BOM_PartType|ReportField=GeneratorName~BOM|ReportField=GeneratorDescription~Bill of Materials|ReportField=VariantName~None|ReportField=Address1~|ReportField=Address2~|ReportField=Address3~|ReportField=Address4~|ReportField=ApprovedBy~|ReportField=Author~|ReportField=CheckedBy~|ReportField=CompanyName~|ReportField=CurrentDate~2/20/2014|ReportField=CurrentTime~3:42:19 PM|ReportField=Date~|ReportField=DocumentFullPathAndName~C:\Users\Public\Documents\Altium\AD13\Projects\TemperatureControllerV4\TemperatureController.SchDoc|ReportField=DocumentName~TemperatureController.SchDoc|ReportField=DocumentNumber~|ReportField=DrawnBy~|ReportField=Engineer~James L. Haynes|ReportField=ImagePath~|ReportField=ModifiedDate~2/20/2014|ReportField=Organization~|ReportField=ProjectName~TemperatureController.PrjPcb|ReportField=Revision~|ReportField=Rule~|ReportField=SheetNumber~|ReportField=SheetTotal~|ReportField=Time~|ReportField=Title~Fermentor Temperature Controller|ReportField=DataSourceFileName~TemperatureController.PrjPcb|ReportField=DataSourceFullPath~C:\Users\Public\Documents\Altium\AD13\Projects\TemperatureControllerV4\TemperatureController.PrjPcb
+Capacitor, Polarized Axial|120 uF Aluminum Electrolytic Capacitor (Axial)|C1|CAPAxial680X1220_VERT|Capacitor, Polarized Axial|1
+Bypass Cap|0.1 uF Capacitor SMD 0805|C2, C3|0805 [2012]|Bypass Capacitor|2
+SMD Diode|Diode, SMD, 0805|D1, D2|Diode (3mm X 1mm X 4.65mm) SMD|Diode|2
+Panel Mount Fuze|Panel Mount Fuze Holder|F1|Off Board Connector|Panel Mount Fuse Holder|1
+SHF-105-01-J-D-SM|Samtec 10 pin .050 pitch shrouded connector|J1, J2|Samtec SHF-105-01-J-D-SM|SHF-105-01-J-D-SM|2
+Barrier Strip|Molex 3 Pos Barrier Strip|J3|Molex 3 Pos Barrier Strip|Molex 3 Pos Barrier Strip|1
+Cool Relay|Omron G5CA-1A-TP-E PCB Mount 12 V Relay with 15A contacts|K1|Omron G5CA-1A-TP|G5CA-1A-TP-E|1
+Heat Relay|Omron G5CA-1A-TP-E PCB Mount 12 V Relay with 15A contacts|K2|Omron G5CA-1A-TP|G5CA-1A-TP-E|1
+1x3 Header|Fan Connector Header, Single-row 3-position, 0.100" pitch|P1|1x3 Pos Header|1x3 Header|1
+Barrel Power Plug|Power Plug|P2|Power Plug|Barrel Plug|1
+Header 2X2H|Header, 2-Pin, Dual row, Right Angle|P3|HDR2X2H|Header 2X2H|1
+VSK-S10-12UA|AC/DC 12V Sealed PCB Mount Power Supply|PSU1|VSK-S10-12UA|VSK-S10-12UA|1
+MMBT3904|NPN General Purpose Amplifier|Q1, Q2|SOT-23|MMBT3904|2
+10k||R1, R2|RES_0805|RES 0805|2
+4.7 K||R3, R4|RES_0805|RES 0805|2
+P6KE-20A|Diode, TVS, Axial|TVS1|DIODE Axial 400 mil|TVS Diode|1
+DS2482-100|I2C to 1-Wire Bridge, SO(150mil)|U1|DS2482-100|DS2482|1
+MOV|Metal Oxide Varistor|V1|Varistor_7.62and10mm|MOV|1

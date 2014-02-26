@@ -1,0 +1,5 @@
+c:\users\user\documents\visual studio 2010\Projects\MyGadgeteerModules\MyGadgeteerModules\bin\Ignore\KitInstaller.dll
+c:\users\user\documents\visual studio 2010\Projects\MyGadgeteerModules\MyGadgeteerModules\bin\Ignore\KitInstaller.pdb
+c:\users\user\documents\visual studio 2010\Projects\MyGadgeteerModules\MyGadgeteerModules\obj\x86\Debug\KitInstaller.dll
+c:\users\user\documents\visual studio 2010\Projects\MyGadgeteerModules\MyGadgeteerModules\obj\x86\Debug\KitInstaller.pdb
+C:\Users\user\Documents\Visual Studio 2010\Projects\MyGadgeteerModules\MyGadgeteerModules\obj\x86\Debug\MyGadgeteerModules.csprojResolveAssemblyReference.cache

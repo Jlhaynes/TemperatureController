@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Include>
+
+  <!-- These are guids used in the msi.wxs file.  If you need more GUIDs (e.g. if you add another install component), use Menu->Tools->Create GUID. -->
+  <?define guid_msi_upgrade_code =  "c424ca9c-4a20-46a1-ba1a-db04ab8e095b" ?>
+  <?define guid_msi_gsg = "4eeccc78-60af-432d-9398-3a20615e0d3f" ?>
+
+</Include>

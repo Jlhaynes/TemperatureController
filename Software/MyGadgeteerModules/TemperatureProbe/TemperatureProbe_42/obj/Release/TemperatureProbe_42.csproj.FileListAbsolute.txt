@@ -1,0 +1,12 @@
+C:\Users\user\Documents\Visual Studio 2010\Projects\MyGadgeteerModules\TemperatureProbe\TemperatureProbe_42\bin\Release\le\GTM.MyGadgeteerModules.TemperatureProbe.dll
+C:\Users\user\Documents\Visual Studio 2010\Projects\MyGadgeteerModules\TemperatureProbe\TemperatureProbe_42\bin\Release\be\GTM.MyGadgeteerModules.TemperatureProbe.dll
+C:\Users\user\Documents\Visual Studio 2010\Projects\MyGadgeteerModules\TemperatureProbe\TemperatureProbe_42\bin\Release\le\GTM.MyGadgeteerModules.TemperatureProbe.pdb
+C:\Users\user\Documents\Visual Studio 2010\Projects\MyGadgeteerModules\TemperatureProbe\TemperatureProbe_42\bin\Release\be\GTM.MyGadgeteerModules.TemperatureProbe.pdb
+C:\Users\user\Documents\Visual Studio 2010\Projects\MyGadgeteerModules\TemperatureProbe\TemperatureProbe_42\bin\Release\GTM.MyGadgeteerModules.TemperatureProbe.dll
+C:\Users\user\Documents\Visual Studio 2010\Projects\MyGadgeteerModules\TemperatureProbe\TemperatureProbe_42\bin\Release\GTM.MyGadgeteerModules.TemperatureProbe.pdb
+C:\Users\user\Documents\Visual Studio 2010\Projects\MyGadgeteerModules\TemperatureProbe\TemperatureProbe_42\bin\Release\le\GTM.MyGadgeteerModules.TemperatureProbe.pe
+C:\Users\user\Documents\Visual Studio 2010\Projects\MyGadgeteerModules\TemperatureProbe\TemperatureProbe_42\bin\Release\le\GTM.MyGadgeteerModules.TemperatureProbe.pdbx
+C:\Users\user\Documents\Visual Studio 2010\Projects\MyGadgeteerModules\TemperatureProbe\TemperatureProbe_42\bin\Release\be\GTM.MyGadgeteerModules.TemperatureProbe.pe
+C:\Users\user\Documents\Visual Studio 2010\Projects\MyGadgeteerModules\TemperatureProbe\TemperatureProbe_42\bin\Release\be\GTM.MyGadgeteerModules.TemperatureProbe.pdbx
+C:\Users\user\Documents\Visual Studio 2010\Projects\MyGadgeteerModules\TemperatureProbe\TemperatureProbe_42\obj\Release\GTM.MyGadgeteerModules.TemperatureProbe.dll
+C:\Users\user\Documents\Visual Studio 2010\Projects\MyGadgeteerModules\TemperatureProbe\TemperatureProbe_42\obj\Release\GTM.MyGadgeteerModules.TemperatureProbe.pdb
