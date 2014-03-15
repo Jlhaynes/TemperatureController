@@ -10,3 +10,10 @@ C:\Users\user\Documents\Visual Studio 2010\Projects\MyGadgeteerModules\ControlRe
 C:\Users\user\Documents\Visual Studio 2010\Projects\MyGadgeteerModules\ControlRelays\ControlRelays_42\bin\Release\be\GTM.MyGadgeteerModules.ControlRelays.pdbx
 C:\Users\user\Documents\Visual Studio 2010\Projects\MyGadgeteerModules\ControlRelays\ControlRelays_42\obj\Release\GTM.MyGadgeteerModules.ControlRelays.dll
 C:\Users\user\Documents\Visual Studio 2010\Projects\MyGadgeteerModules\ControlRelays\ControlRelays_42\obj\Release\GTM.MyGadgeteerModules.ControlRelays.pdb
+C:\Users\user\Documents\Visual Studio 2010\Projects\MyGadgeteerModules\ControlRelays\ControlRelays_42\obj\Release\ControlRelays_42.csprojResolveAssemblyReference.cache
+C:\Users\user\Documents\Visual Studio 2010\Projects\MyGadgeteerModules\ControlRelays\ControlRelays_42\obj\Release\TinyCLR_DebugReferences.cache
+C:\Users\user\Documents\Visual Studio 2010\Projects\MyGadgeteerModules\ControlRelays\ControlRelays_42\obj\Release\be\GTM.MyGadgeteerModules.ControlRelays.pe
+C:\Users\user\Documents\Visual Studio 2010\Projects\MyGadgeteerModules\ControlRelays\ControlRelays_42\obj\Release\be\GTM.MyGadgeteerModules.ControlRelays.pdbx
+C:\Users\user\Documents\Visual Studio 2010\Projects\MyGadgeteerModules\ControlRelays\ControlRelays_42\obj\Release\le\GTM.MyGadgeteerModules.ControlRelays.pe
+C:\Users\user\Documents\Visual Studio 2010\Projects\MyGadgeteerModules\ControlRelays\ControlRelays_42\obj\Release\le\GTM.MyGadgeteerModules.ControlRelays.pdbx
+C:\Users\user\Documents\Visual Studio 2010\Projects\MyGadgeteerModules\ControlRelays\ControlRelays_42\bin\Release\GTM.MyGadgeteerModules.ControlRelays.XML

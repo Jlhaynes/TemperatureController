@@ -70,8 +70,8 @@ namespace Gadgeteer.Modules.MyGadgeteerModules
     /// User selectable resolution of the DS18B20 ADC.
     /// Bits 5 and 6 of the configuration register are used to set the resolution. 
     /// Bits 0-4 and 7 are reserved for interal use. Configuration register is as follows:
-    /// Bit:    7  6  5  4  3  2  1  0
-    /// Value:  0  R1 R0 1  1  1  1  1
+    ///     Bit:    7  6  5  4  3  2  1  0
+    ///     Value:  0  R1 R0 1  1  1  1  1
     /// </summary>
     public enum ADCResolution
     {
@@ -84,7 +84,7 @@ namespace Gadgeteer.Modules.MyGadgeteerModules
     /// <summary>
     /// DS18B20 Scratchpad registers. Bytes 5-7 are reserved.
     /// </summary>
-    public enum DS18B20ScratchPadLocation
+    public enum DS18B20ScratchPadLocations
     {
         TempLSB = 0,
         TempMSB = 1,
@@ -163,8 +163,10 @@ namespace Gadgeteer.Modules.MyGadgeteerModules
         private ushort bridgeAddress;
         private const int scratchPadSize = 9;
         private const int ROMCodeSize = 8;
-        
+        private const int ROMCodeCRC = 7;
+        private const int commTimeout = 100; // Timeout in mS
         private const int bitByte = 0x80; // For reading single bits from the 1-wire bus
+        private const int scratchPadCopyDelay = 10; // Delay in mS
 
         private byte[] commandBytes;
         private byte[] readBuffer;
@@ -224,8 +226,6 @@ namespace Gadgeteer.Modules.MyGadgeteerModules
             this.bridgeAddress = bridgeAddress;
             this.adcResolution = adcResolution;
 
-            i2cBus = new I2CBus(socket, bridgeAddress, clockFrequency, probe);
-
             switch (adcResolution)
             {
                 case ADCResolution.NineBit:
@@ -248,7 +248,10 @@ namespace Gadgeteer.Modules.MyGadgeteerModules
                     break;
             }
 
-            try{
+            try
+            {
+                i2cBus = new I2CBus(socket, bridgeAddress, clockFrequency, probe);
+
                 ResetDS2482();
                 ReadDS18B20ROMCode();
                 ReadDS18B20PowerSupply();
@@ -265,16 +268,23 @@ namespace Gadgeteer.Modules.MyGadgeteerModules
         /// </summary>
         private void ResetDS2482()
         {
-            commandBytes = new byte[1] { (byte)DS2482FunctionCommands.DeviceReset };
-            readBuffer = new byte[1];
-
-            i2cBus.Write(commandBytes, 100);
-            i2cBus.Read(readBuffer, 100);
-
-            // Verify that communication has occured. After reset RST bit should be 1 
-            if ((readBuffer[0] & (byte)DS2482StatusBits.DeviceReset) != (byte)DS2482StatusBits.DeviceReset)
+            try
             {
-                throw new Exception("DS2482 not found on I2C Bus");
+                commandBytes = new byte[1] { (byte)DS2482FunctionCommands.DeviceReset };
+                readBuffer = new byte[1];
+
+                i2cBus.Write(commandBytes, commTimeout);
+                i2cBus.Read(readBuffer, commTimeout);
+
+                // Verify that communication has occured. After reset RST bit should be 1 
+                if ((readBuffer[0] & (byte)DS2482StatusBits.DeviceReset) != (byte)DS2482StatusBits.DeviceReset)
+                {
+                    throw new Exception("DS2482 not found on I2C Bus");
+                }
+            }
+            catch (Exception)
+            {
+                throw;
             }
         }
 
@@ -287,10 +297,17 @@ namespace Gadgeteer.Modules.MyGadgeteerModules
         {
             ds2482ConfigurationByte = ~config;  // invert
             ds2482ConfigurationByte <<= 4;
-            ds2482ConfigurationByte |= config;
+            ds2482ConfigurationByte |= (config & 0x0F);
 
-            commandBytes = new byte[2] { (byte)DS2482FunctionCommands.WriteConfiguration, (byte)ds2482ConfigurationByte };
-            i2cBus.Write(commandBytes, 100);
+            try
+            {
+                commandBytes = new byte[2] { (byte)DS2482FunctionCommands.WriteConfiguration, (byte)ds2482ConfigurationByte };
+                i2cBus.Write(commandBytes, commTimeout);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
         /// <summary>
@@ -298,18 +315,25 @@ namespace Gadgeteer.Modules.MyGadgeteerModules
         /// </summary>
         private void ReadDS18B20PowerSupply()
         {
-            Reset1WireBus();
-            Write1WireByte((byte)DS18B20ROMCommands.SkipROM);
-            Write1WireByte((byte)DS18B20FunctionCommands.ReadPowerSupply);
-
-            commandBytes = new byte[2] { (byte)DS2482FunctionCommands.SingleBit1Wire, bitByte };
-            i2cBus.Write(commandBytes, 100);// Send SingleBit1Wire command
-            
-            readBuffer = new byte[1];
-            i2cBus.Read(readBuffer, 100);  // Read contents of status register
-            if ((readBuffer[0] & (byte)DS2482StatusBits.SingleBitResult) != (byte)DS2482StatusBits.SingleBitResult)
+            try
             {
-                usingParasitePower = true;      // if SBR == 0 then parasite power
+                Reset1WireBus();
+                Write1WireByte((byte)DS18B20ROMCommands.SkipROM);
+                Write1WireByte((byte)DS18B20FunctionCommands.ReadPowerSupply);
+
+                commandBytes = new byte[2] { (byte)DS2482FunctionCommands.SingleBit1Wire, bitByte };
+                i2cBus.Write(commandBytes, commTimeout);// Send SingleBit1Wire command
+
+                readBuffer = new byte[1];
+                i2cBus.Read(readBuffer, commTimeout);  // Read contents of status register
+                if ((readBuffer[0] & (byte)DS2482StatusBits.SingleBitResult) != (byte)DS2482StatusBits.SingleBitResult)
+                {
+                    usingParasitePower = true;      // if SBR == 0 then using parasite power
+                }
+            }
+            catch (Exception)
+            {
+                throw;
             }
         }
 
@@ -335,7 +359,7 @@ namespace Gadgeteer.Modules.MyGadgeteerModules
             Write1WireByte((byte)DS18B20FunctionCommands.CopyScratchPad);
             if (usingParasitePower)
             {
-                Thread.Sleep(10); // delay for 10 mS while copy operation in progress
+                Thread.Sleep(scratchPadCopyDelay); // delay for 10 mS while copy operation in progress
             }
         }
 
@@ -356,16 +380,23 @@ namespace Gadgeteer.Modules.MyGadgeteerModules
         /// </summary>
         private void Reset1WireBus()
         {
-            commandBytes = new byte[1] { (byte)DS2482FunctionCommands.Reset1Wire };
-            readBuffer = new byte[1];
-
-            i2cBus.Write(commandBytes, 100);
-            i2cBus.Read(readBuffer, 100);
-
-            if ((readBuffer[0] & (byte)DS2482StatusBits.PresencePulseDetect) != (byte)DS2482StatusBits.PresencePulseDetect)
+            try
             {
-                //throw new Exception("No listeners on 1-Wire Bus"); 
-                throw new Exception("DS18B20 probe not found");
+                commandBytes = new byte[1] { (byte)DS2482FunctionCommands.Reset1Wire };
+                readBuffer = new byte[1];
+
+                i2cBus.Write(commandBytes, commTimeout);
+                i2cBus.Read(readBuffer, commTimeout);
+
+                if ((readBuffer[0] & (byte)DS2482StatusBits.PresencePulseDetect) != (byte)DS2482StatusBits.PresencePulseDetect)
+                {
+                    //throw new Exception("No listeners on 1-Wire Bus"); 
+                    throw new Exception("DS18B20 probe not found");
+                }
+            }
+            catch (Exception)
+            {
+                throw;
             }
         }
 
@@ -374,18 +405,25 @@ namespace Gadgeteer.Modules.MyGadgeteerModules
         /// </summary>
         private void ReadDS18B20ROMCode()
         {
-            Reset1WireBus();
-
-            Write1WireByte((byte)DS18B20ROMCommands.ReadROM);
-
-            for (int i = 0; i < ROMCodeSize; i++)
+            try
             {
-                ds18B20RomCode[i] = Read1WireByte();
+                Reset1WireBus();
+
+                Write1WireByte((byte)DS18B20ROMCommands.ReadROM);
+
+                for (int i = 0; i < ROMCodeSize; i++)
+                {
+                    ds18B20RomCode[i] = Read1WireByte();
+                }
+
+                if ((byte)CRCCalculator.CalculateChecksum(ds18B20RomCode, 0, ROMCodeSize - 1) != ds18B20RomCode[ROMCodeCRC])
+                {
+                    throw new Exception("Bad CRC on ROM Code");
+                }
             }
-            
-            if ((byte)CRCCalculator.CalculateChecksum(ds18B20RomCode, 0, 7) != ds18B20RomCode[7])
+            catch (Exception)
             {
-                throw new Exception("Bad CRC on ROM Code");
+                throw;
             }
         }
 
@@ -395,21 +433,28 @@ namespace Gadgeteer.Modules.MyGadgeteerModules
         /// <returns></returns>
         private byte Read1WireByte()
         {
-            commandBytes = new byte[1] { (byte)DS2482FunctionCommands.ReadByte1Wire };
-            readBuffer = new byte[1];
-
-            i2cBus.Write(commandBytes, 100);
-            do
+            try
             {
-                i2cBus.Read(readBuffer, 100);
-            }
-            while ((readBuffer[0] & (byte)DS2482StatusBits.Busy1Wire) == (byte)DS2482StatusBits.Busy1Wire);
+                commandBytes = new byte[1] { (byte)DS2482FunctionCommands.ReadByte1Wire };
+                readBuffer = new byte[1];
 
-            commandBytes = new byte[2] { (byte)DS2482FunctionCommands.SetReadPointer, (byte)DS2482PointerCodes.ReadDataRegister };
-            readBuffer = new byte[1];
-            i2cBus.Write(commandBytes, 100);
-            i2cBus.Read(readBuffer, 100);
-            return readBuffer[0];
+                i2cBus.Write(commandBytes, commTimeout);
+                do
+                {
+                    i2cBus.Read(readBuffer, commTimeout);
+                }
+                while ((readBuffer[0] & (byte)DS2482StatusBits.Busy1Wire) == (byte)DS2482StatusBits.Busy1Wire);
+
+                commandBytes = new byte[2] { (byte)DS2482FunctionCommands.SetReadPointer, (byte)DS2482PointerCodes.ReadDataRegister };
+                readBuffer = new byte[1];
+                i2cBus.Write(commandBytes, commTimeout);
+                i2cBus.Read(readBuffer, commTimeout);
+                return readBuffer[0];
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
         /// <summary>
@@ -417,16 +462,23 @@ namespace Gadgeteer.Modules.MyGadgeteerModules
         /// </summary>
         private void Write1WireByte(byte dataByte)
         {
-            commandBytes = new byte[2] { (byte)DS2482FunctionCommands.WriteByte1Wire, dataByte };
-            readBuffer = new byte[1];
-
-            i2cBus.Write(commandBytes, 100);
-
-            do
+            try
             {
-                i2cBus.Read(readBuffer, 100);
+                commandBytes = new byte[2] { (byte)DS2482FunctionCommands.WriteByte1Wire, dataByte };
+                readBuffer = new byte[1];
+
+                i2cBus.Write(commandBytes, commTimeout);
+
+                do
+                {
+                    i2cBus.Read(readBuffer, commTimeout);
+                }
+                while ((readBuffer[0] & (byte)DS2482StatusBits.Busy1Wire) == (byte)DS2482StatusBits.Busy1Wire);
             }
-            while ((readBuffer[0] & (byte)DS2482StatusBits.Busy1Wire) == (byte)DS2482StatusBits.Busy1Wire);
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
         /// <summary>
@@ -452,10 +504,11 @@ namespace Gadgeteer.Modules.MyGadgeteerModules
                 {
                     ReadDS18B20ScratchPad();
                 } // if CRC matches continue, else read again
-                while ((byte)CRCCalculator.CalculateChecksum(ds18B20ScratchPad, 0, 8) != ds18B20ScratchPad[8]); 
+                while ((byte)CRCCalculator.CalculateChecksum(ds18B20ScratchPad, 0, scratchPadSize - 1) != 
+                        ds18B20ScratchPad[(int)DS18B20ScratchPadLocations.ScratchPadCRC]); 
 
-                temperatureInBytes[0] = ds18B20ScratchPad[(int)DS18B20ScratchPadLocation.TempLSB];
-                temperatureInBytes[1] = ds18B20ScratchPad[(int)DS18B20ScratchPadLocation.TempMSB];
+                temperatureInBytes[0] = ds18B20ScratchPad[(int)DS18B20ScratchPadLocations.TempLSB];
+                temperatureInBytes[1] = ds18B20ScratchPad[(int)DS18B20ScratchPadLocations.TempMSB];
                 temperatureCelsius = GetTemperatureFromBytes(temperatureInBytes); // Decode Temperature
 
             // Fire MeasurementCompleted event
@@ -472,18 +525,24 @@ namespace Gadgeteer.Modules.MyGadgeteerModules
         /// </summary>
         private void ReadDS18B20ScratchPad()
         {
-            ds18B20ScratchPad = new byte[scratchPadSize];
-
-            Reset1WireBus();
-            Write1WireByte((byte)DS18B20ROMCommands.SkipROM);
-            Write1WireByte((byte)DS18B20FunctionCommands.ReadScratchPad);
-
-            for (int i = 0; i < scratchPadSize; i++)
+            try
             {
-                ds18B20ScratchPad[i] = Read1WireByte();
+                ds18B20ScratchPad = new byte[scratchPadSize];
+
+                Reset1WireBus();
+                Write1WireByte((byte)DS18B20ROMCommands.SkipROM);
+                Write1WireByte((byte)DS18B20FunctionCommands.ReadScratchPad);
+
+                for (int i = 0; i < scratchPadSize; i++)
+                {
+                    ds18B20ScratchPad[i] = Read1WireByte();
+                }
+            }
+            catch (Exception)
+            {
+                throw;
             }
         }
-
 
         /// <summary>
         /// Decodes temperature value from byte array. DS18B20 returns temperature as a 16 bit sign-extended two's complement number.

@@ -11,3 +11,8 @@ c:\users\user\documents\visual studio 2010\Projects\MyGadgeteerModules\Temperatu
 c:\users\user\documents\visual studio 2010\Projects\MyGadgeteerModules\TemperatureProbe\TemperatureProbe_42\obj\Debug\TinyCLR_DebugReferences.cache
 c:\users\user\documents\visual studio 2010\Projects\MyGadgeteerModules\TemperatureProbe\TemperatureProbe_42\obj\Debug\GTM.MyGadgeteerModules.TemperatureProbe.dll
 c:\users\user\documents\visual studio 2010\Projects\MyGadgeteerModules\TemperatureProbe\TemperatureProbe_42\obj\Debug\GTM.MyGadgeteerModules.TemperatureProbe.pdb
+C:\Users\user\Documents\Visual Studio 2010\Projects\MyGadgeteerModules\TemperatureProbe\TemperatureProbe_42\bin\Debug\GTM.MyGadgeteerModules.TemperatureProbe.XML
+C:\Users\user\Documents\Visual Studio 2010\Projects\MyGadgeteerModules\TemperatureProbe\TemperatureProbe_42\obj\Debug\be\GTM.MyGadgeteerModules.TemperatureProbe.pe
+C:\Users\user\Documents\Visual Studio 2010\Projects\MyGadgeteerModules\TemperatureProbe\TemperatureProbe_42\obj\Debug\be\GTM.MyGadgeteerModules.TemperatureProbe.pdbx
+C:\Users\user\Documents\Visual Studio 2010\Projects\MyGadgeteerModules\TemperatureProbe\TemperatureProbe_42\obj\Debug\le\GTM.MyGadgeteerModules.TemperatureProbe.pe
+C:\Users\user\Documents\Visual Studio 2010\Projects\MyGadgeteerModules\TemperatureProbe\TemperatureProbe_42\obj\Debug\le\GTM.MyGadgeteerModules.TemperatureProbe.pdbx

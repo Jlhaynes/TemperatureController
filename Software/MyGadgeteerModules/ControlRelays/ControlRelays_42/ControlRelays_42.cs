@@ -28,6 +28,7 @@
  * ==========================================================================
 */
 
+using System;
 using Microsoft.SPOT;
 
 using GT = Gadgeteer;
@@ -88,12 +89,19 @@ namespace Gadgeteer.Modules.MyGadgeteerModules
             // This will generate user-friendly error messages if the socket is invalid.
             // If there is more than one socket on this module, then instead of "null" for the last parameter, 
             // put text that identifies the socket to the user (e.g. "S" if there is a socket type S)
-            socket = Socket.GetSocket(socketNumber, true, this, "XY");
-            relay1 = new GTI.DigitalOutput(socket, Socket.Pin.Three, false, this);
-            relay2 = new GTI.DigitalOutput(socket, Socket.Pin.Four, false, this);
+            try
+            {
+                socket = Socket.GetSocket(socketNumber, true, this, "XY");
+                relay1 = new GTI.DigitalOutput(socket, Socket.Pin.Three, false, this);
+                relay2 = new GTI.DigitalOutput(socket, Socket.Pin.Four, false, this);
 
-            Relay1 = false;
-            Relay2 = false;
+                Relay1 = false;
+                Relay2 = false;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
         #endregion
 

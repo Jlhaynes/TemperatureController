@@ -19,11 +19,11 @@
             User selectable resolution of the DS18B20 ADC.
             Bits 5 and 6 of the configuration register are used to set the resolution. 
             Bits 0-4 and 7 are reserved for interal use. Configuration register is as follows:
-            Bit:    7  6  5  4  3  2  1  0
-            Value:  0  R1 R0 1  1  1  1  1
+                Bit:    7  6  5  4  3  2  1  0
+                Value:  0  R1 R0 1  1  1  1  1
             </summary>
         </member>
-        <member name="T:Gadgeteer.Modules.MyGadgeteerModules.DS18B20ScratchPadLocation">
+        <member name="T:Gadgeteer.Modules.MyGadgeteerModules.DS18B20ScratchPadLocations">
             <summary>
             DS18B20 Scratchpad registers. Bytes 5-7 are reserved.
             </summary>

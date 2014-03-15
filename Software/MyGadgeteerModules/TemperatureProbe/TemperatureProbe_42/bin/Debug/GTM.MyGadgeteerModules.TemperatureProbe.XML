@@ -4,72 +4,164 @@
         <name>GTM.MyGadgeteerModules.TemperatureProbe</name>
     </assembly>
     <members>
+        <member name="T:Gadgeteer.Modules.MyGadgeteerModules.DS18B20ROMCommands">
+            <summary>
+            Valid DS18B20 ROM Command Codes
+            </summary>
+        </member>
+        <member name="T:Gadgeteer.Modules.MyGadgeteerModules.DS18B20FunctionCommands">
+            <summary>
+            Valid DS18B20 Function Command Codes
+            </summary>
+        </member>
+        <member name="T:Gadgeteer.Modules.MyGadgeteerModules.ADCResolution">
+            <summary>
+            User selectable resolution of the DS18B20 ADC.
+            Bits 5 and 6 of the configuration register are used to set the resolution. 
+            Bits 0-4 and 7 are reserved for interal use. Configuration register is as follows:
+                Bit:    7  6  5  4  3  2  1  0
+                Value:  0  R1 R0 1  1  1  1  1
+            </summary>
+        </member>
+        <member name="T:Gadgeteer.Modules.MyGadgeteerModules.DS18B20ScratchPadLocations">
+            <summary>
+            DS18B20 Scratchpad registers. Bytes 5-7 are reserved.
+            </summary>
+        </member>
+        <member name="T:Gadgeteer.Modules.MyGadgeteerModules.DS2482StatusBits">
+            <summary>
+            Bit masks for the DS2482 status register
+            </summary>
+        </member>
+        <member name="T:Gadgeteer.Modules.MyGadgeteerModules.DS2482FunctionCommands">
+            <summary>
+            Valid DS2482 Fuinction Command Codes
+            </summary>
+        </member>
+        <member name="T:Gadgeteer.Modules.MyGadgeteerModules.DS2482PointerCodes">
+            <summary>
+            Valid DS2482 Read Pointer Codes
+            </summary>
+        </member>
+        <member name="T:Gadgeteer.Modules.MyGadgeteerModules.DS2482ConfigurationBits">
+            <summary>
+            DS2482 configuration register bits 
+            </summary>
+        </member>
         <member name="T:Gadgeteer.Modules.MyGadgeteerModules.TemperatureProbe">
             <summary>
             A TemperatureProbe module for Microsoft .NET Gadgeteer
             </summary>
         </member>
-        <member name="M:Gadgeteer.Modules.MyGadgeteerModules.TemperatureProbe.#ctor(System.Int32,System.Int32)">
+        <member name="M:Gadgeteer.Modules.MyGadgeteerModules.TemperatureProbe.#ctor(System.Int32)">
             <summary></summary>
             <param name="socketNumber">The socket that this module is plugged in to.</param>
-            <param name="socketNumberTwo">The second socket that this module is plugged in to.</param>
         </member>
-        <member name="M:Gadgeteer.Modules.MyGadgeteerModules.TemperatureProbe.OnButtonEvent(Gadgeteer.Modules.MyGadgeteerModules.TemperatureProbe,Gadgeteer.Modules.MyGadgeteerModules.TemperatureProbe.ButtonState)">
+        <member name="M:Gadgeteer.Modules.MyGadgeteerModules.TemperatureProbe.Initialize(System.UInt16,System.Int32,Gadgeteer.Modules.MyGadgeteerModules.ADCResolution,Gadgeteer.Modules.Module)">
             <summary>
-            Raises the <see cref="E:Gadgeteer.Modules.MyGadgeteerModules.TemperatureProbe.ButtonPressed"/> or <see cref="E:Gadgeteer.Modules.MyGadgeteerModules.TemperatureProbe.ButtonReleased"/> event.
+            Initializes the temperature probe by specifying the I2C bridge address and clock frequency
             </summary>
-            <param name="sender">The <see cref="T:Gadgeteer.Modules.MyGadgeteerModules.TemperatureProbe"/> that raised the event.</param>
-            <param name="buttonState">The state of the button.</param>
+            <param name="bridgeAddress">The I2C address of the DS2482 bridge.</param>
+            <param name="clockFrequency">The clock rate in kHz of the I2C bus.</param>
+            <param name="adcResolution">The resolution of the ADC: 9, 10, 11, or 12 bit.</param>
+            <param name="probe">The probe being initialized.</param>
         </member>
-        <member name="P:Gadgeteer.Modules.MyGadgeteerModules.TemperatureProbe.IsPressed">
+        <member name="M:Gadgeteer.Modules.MyGadgeteerModules.TemperatureProbe.ResetDS2482">
             <summary>
-            Gets a value that indicates whether the button of the TemperatureProbe is pressed.
-            </summary>
-        </member>
-        <member name="E:Gadgeteer.Modules.MyGadgeteerModules.TemperatureProbe.ButtonPressed">
-            <summary>
-            Raised when the button of the <see cref="T:Gadgeteer.Modules.MyGadgeteerModules.TemperatureProbe"/> is pressed.
-            </summary>
-            <remarks>
-            Implement this event handler and/or the <see cref="E:Gadgeteer.Modules.MyGadgeteerModules.TemperatureProbe.ButtonReleased"/> event handler
-            when you want to provide an action associated with button events.
-            Since the state of the button is passed to the <see cref="T:Gadgeteer.Modules.MyGadgeteerModules.TemperatureProbe.ButtonEventHandler"/> delegate,
-            so you can use the same event handler for both button states.
-            </remarks>
-        </member>
-        <member name="E:Gadgeteer.Modules.MyGadgeteerModules.TemperatureProbe.ButtonReleased">
-            <summary>
-            Raised when the button of the <see cref="T:Gadgeteer.Modules.MyGadgeteerModules.TemperatureProbe"/> is released.
-            </summary>
-            <remarks>
-            Implement this event handler and/or the <see cref="E:Gadgeteer.Modules.MyGadgeteerModules.TemperatureProbe.ButtonPressed"/> event handler
-            when you want to provide an action associated with button events.
-            Since the state of the button is passed to the <see cref="T:Gadgeteer.Modules.MyGadgeteerModules.TemperatureProbe.ButtonEventHandler"/> delegate,
-            you can use the same event handler for both button states.
-            </remarks>
-        </member>
-        <member name="T:Gadgeteer.Modules.MyGadgeteerModules.TemperatureProbe.ButtonState">
-            <summary>
-            Represents the state of button of the <see cref="T:Gadgeteer.Modules.MyGadgeteerModules.TemperatureProbe"/>.
+            Reset the DS2482 and read the status byte
             </summary>
         </member>
-        <member name="F:Gadgeteer.Modules.MyGadgeteerModules.TemperatureProbe.ButtonState.Released">
+        <member name="M:Gadgeteer.Modules.MyGadgeteerModules.TemperatureProbe.WriteDS2482ConfigurationByte(System.Byte)">
             <summary>
-            The button is released.
+            Writes DS2482 configuration register. Configuration register only accepts data if upper 
+            nibble is one's complement of lower nibble
+            </summary>
+            <param name="config"></param>
+        </member>
+        <member name="M:Gadgeteer.Modules.MyGadgeteerModules.TemperatureProbe.ReadDS18B20PowerSupply">
+            <summary>
+            Check if probe is parasitically powered. Must issue strong pullup commands if it is
             </summary>
         </member>
-        <member name="F:Gadgeteer.Modules.MyGadgeteerModules.TemperatureProbe.ButtonState.Pressed">
+        <member name="M:Gadgeteer.Modules.MyGadgeteerModules.TemperatureProbe.ConfigureDS18B20">
             <summary>
-            The button is pressed.
+            Initialize the DS18B20 probe.
             </summary>
         </member>
-        <member name="T:Gadgeteer.Modules.MyGadgeteerModules.TemperatureProbe.ButtonEventHandler">
+        <member name="M:Gadgeteer.Modules.MyGadgeteerModules.TemperatureProbe.IssueStrongPullup">
             <summary>
-            Represents the delegate that is used to handle the <see cref="E:Gadgeteer.Modules.MyGadgeteerModules.TemperatureProbe.ButtonPressed"/>
-            and <see cref="E:Gadgeteer.Modules.MyGadgeteerModules.TemperatureProbe.ButtonReleased"/> events.
+            Send Strong Pullup command.
             </summary>
-            <param name="sender">The <see cref="T:Gadgeteer.Modules.MyGadgeteerModules.TemperatureProbe"/> object that raised the event.</param>
-            <param name="state">The state of the button of the <see cref="T:Gadgeteer.Modules.MyGadgeteerModules.TemperatureProbe"/></param>
+        </member>
+        <member name="M:Gadgeteer.Modules.MyGadgeteerModules.TemperatureProbe.Reset1WireBus">
+            <summary>
+            Reset 1-wire bus. 
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Modules.MyGadgeteerModules.TemperatureProbe.ReadDS18B20ROMCode">
+            <summary>
+            Reads the DS18B20's 64-bit ROM code
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Modules.MyGadgeteerModules.TemperatureProbe.Read1WireByte">
+            <summary>
+            Reads 1 byte from the temperature probe on the 1-wire bus
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Gadgeteer.Modules.MyGadgeteerModules.TemperatureProbe.Write1WireByte(System.Byte)">
+            <summary>
+            Writes 1 byte to the temperature probe over the 1-wire bus
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Modules.MyGadgeteerModules.TemperatureProbe.RequestMeasurement">
+            <summary>
+            Begins a temperature conversion. Raises a MeasurementComplete event when completed.
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Modules.MyGadgeteerModules.TemperatureProbe.ReadDS18B20ScratchPad">
+            <summary>
+            Reads the DS18B20 scratchpad into the DS18B20ScratchPad byte array 
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Modules.MyGadgeteerModules.TemperatureProbe.GetTemperatureFromBytes(System.Byte[])">
+            <summary>
+            Decodes temperature value from byte array. DS18B20 returns temperature as a 16 bit sign-extended two's complement number.
+            The lower 4 bits of the LSB represent the fractional part of the value.
+            </summary>
+            <param name="temperatureBytes">Byte array from DS18B20</param>
+            <returns>Floating point temperature value in degrees Celsius.</returns>
+        </member>
+        <member name="M:Gadgeteer.Modules.MyGadgeteerModules.TemperatureProbe.OnMeasurementComplete">
+            <summary>
+            Event raised when temperature conversion is complete 
+            </summary>
+        </member>
+        <member name="E:Gadgeteer.Modules.MyGadgeteerModules.TemperatureProbe.MeasurementComplete">
+            <summary>
+            Raised when a temperature measurement is complete.
+            </summary>
+        </member>
+        <member name="T:Gadgeteer.Modules.MyGadgeteerModules.TemperatureProbe.MeasurementCompleteEventHandler">
+            <summary>
+            Delegate for MeasurementComplete event
+            </summary>
+            <param name="sender">Sender</param>
+            <param name="temperature">Temperature value in celsius</param>
+        </member>
+        <member name="T:Gadgeteer.Modules.MyGadgeteerModules.CRC8Calc">
+            
+            Class for calculating CRC8 checksums
+            
+        </member>
+        <member name="M:Gadgeteer.Modules.MyGadgeteerModules.CRC8Calc.CalculateChecksum(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            Calculates the CRC8 value of the given data array.
+            </summary>
+            <param name="data"></param>
+            <param name="offset"></param>
+            <param name="length"></param>
+            <returns>The checksum byte is returned</returns>
         </member>
     </members>
 </doc>

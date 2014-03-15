@@ -9,67 +9,21 @@
             A ControlRelays module for Microsoft .NET Gadgeteer
             </summary>
         </member>
-        <member name="M:Gadgeteer.Modules.MyGadgeteerModules.ControlRelays.#ctor(System.Int32,System.Int32)">
-            <summary></summary>
-            <param name="socketNumber">The socket that this module is plugged in to.</param>
-            <param name="socketNumberTwo">The second socket that this module is plugged in to.</param>
-        </member>
-        <member name="M:Gadgeteer.Modules.MyGadgeteerModules.ControlRelays.OnButtonEvent(Gadgeteer.Modules.MyGadgeteerModules.ControlRelays,Gadgeteer.Modules.MyGadgeteerModules.ControlRelays.ButtonState)">
+        <member name="M:Gadgeteer.Modules.MyGadgeteerModules.ControlRelays.#ctor(System.Int32)">
             <summary>
-            Raises the <see cref="E:Gadgeteer.Modules.MyGadgeteerModules.ControlRelays.ButtonPressed"/> or <see cref="E:Gadgeteer.Modules.MyGadgeteerModules.ControlRelays.ButtonReleased"/> event.
+            Creates a ControlRelays object connected to the specified socket number.
             </summary>
-            <param name="sender">The <see cref="T:Gadgeteer.Modules.MyGadgeteerModules.ControlRelays"/> that raised the event.</param>
-            <param name="buttonState">The state of the button.</param>
+            <param name="socketNumber"></param>
         </member>
-        <member name="P:Gadgeteer.Modules.MyGadgeteerModules.ControlRelays.IsPressed">
+        <member name="P:Gadgeteer.Modules.MyGadgeteerModules.ControlRelays.Relay1">
             <summary>
-            Gets a value that indicates whether the button of the ControlRelays is pressed.
-            </summary>
+            Sets State of Relay 1
+            </summary>        
         </member>
-        <member name="E:Gadgeteer.Modules.MyGadgeteerModules.ControlRelays.ButtonPressed">
+        <member name="P:Gadgeteer.Modules.MyGadgeteerModules.ControlRelays.Relay2">
             <summary>
-            Raised when the button of the <see cref="T:Gadgeteer.Modules.MyGadgeteerModules.ControlRelays"/> is pressed.
-            </summary>
-            <remarks>
-            Implement this event handler and/or the <see cref="E:Gadgeteer.Modules.MyGadgeteerModules.ControlRelays.ButtonReleased"/> event handler
-            when you want to provide an action associated with button events.
-            Since the state of the button is passed to the <see cref="T:Gadgeteer.Modules.MyGadgeteerModules.ControlRelays.ButtonEventHandler"/> delegate,
-            so you can use the same event handler for both button states.
-            </remarks>
-        </member>
-        <member name="E:Gadgeteer.Modules.MyGadgeteerModules.ControlRelays.ButtonReleased">
-            <summary>
-            Raised when the button of the <see cref="T:Gadgeteer.Modules.MyGadgeteerModules.ControlRelays"/> is released.
-            </summary>
-            <remarks>
-            Implement this event handler and/or the <see cref="E:Gadgeteer.Modules.MyGadgeteerModules.ControlRelays.ButtonPressed"/> event handler
-            when you want to provide an action associated with button events.
-            Since the state of the button is passed to the <see cref="T:Gadgeteer.Modules.MyGadgeteerModules.ControlRelays.ButtonEventHandler"/> delegate,
-            you can use the same event handler for both button states.
-            </remarks>
-        </member>
-        <member name="T:Gadgeteer.Modules.MyGadgeteerModules.ControlRelays.ButtonState">
-            <summary>
-            Represents the state of button of the <see cref="T:Gadgeteer.Modules.MyGadgeteerModules.ControlRelays"/>.
-            </summary>
-        </member>
-        <member name="F:Gadgeteer.Modules.MyGadgeteerModules.ControlRelays.ButtonState.Released">
-            <summary>
-            The button is released.
-            </summary>
-        </member>
-        <member name="F:Gadgeteer.Modules.MyGadgeteerModules.ControlRelays.ButtonState.Pressed">
-            <summary>
-            The button is pressed.
-            </summary>
-        </member>
-        <member name="T:Gadgeteer.Modules.MyGadgeteerModules.ControlRelays.ButtonEventHandler">
-            <summary>
-            Represents the delegate that is used to handle the <see cref="E:Gadgeteer.Modules.MyGadgeteerModules.ControlRelays.ButtonPressed"/>
-            and <see cref="E:Gadgeteer.Modules.MyGadgeteerModules.ControlRelays.ButtonReleased"/> events.
-            </summary>
-            <param name="sender">The <see cref="T:Gadgeteer.Modules.MyGadgeteerModules.ControlRelays"/> object that raised the event.</param>
-            <param name="state">The state of the button of the <see cref="T:Gadgeteer.Modules.MyGadgeteerModules.ControlRelays"/></param>
+            Sets State of Relay 2
+            </summary>        
         </member>
     </members>
 </doc>
